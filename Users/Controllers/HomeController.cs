@@ -18,10 +18,10 @@ namespace Users.Controllers
         }
 
         /// <summary>
-        /// 登录后角色认证失败 依然跳到了登录页面
+        /// 登录后角色认证失败 依然跳到了登录页面 (fixed)
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "goodmorning")]
+        [Authorize(Roles = "User")]
         public ActionResult OtherAction() {
             return View("Index", GetData("OtherAction"));
         }

@@ -44,7 +44,7 @@ namespace Users.Controllers
                     // WHAT IS THIS?
                     ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user ,DefaultAuthenticationTypes.ApplicationCookie);
                     AuthManager.SignOut(); // 删掉cookie
-                    AuthManager.SignIn(new AuthenticationProperties { IsPersistent = false }, ident); // 创建cookie 持久化的
+                    AuthManager.SignIn(new AuthenticationProperties { IsPersistent = false }, ident); // 创建cookie 持久化的(永不过期)
                     return Redirect(returnUrl);
                 }
             }

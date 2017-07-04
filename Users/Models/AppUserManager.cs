@@ -11,6 +11,18 @@ namespace Users.Models {
     public class AppUserManager : UserManager<AppUser> {
         public AppUserManager(IUserStore<AppUser> store): base(store) {
 
+            this.PasswordValidator = new CustomPasswordValidator {
+                RequiredLength = 1,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false
+            };
+
+            this.UserValidator = new UserValidator<AppUser>(this) {
+                AllowOnlyAlphanumericUserNames = true, // 只能有字母和数字
+                RequireUniqueEmail = true // 只能唯一的电子邮件(不会验证电子邮件的格式是否正确)
+            };
         }
 
         // 依赖注入??
