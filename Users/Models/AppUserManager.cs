@@ -18,6 +18,8 @@ namespace Users.Models {
             AppIdentityDbContext db = context.Get<AppIdentityDbContext>();
             AppUserManager manager = new AppUserManager(new UserStore<AppUser>(db));
 
+            
+
             // 设置密码验证策略
             //manager.PasswordValidator = new PasswordValidator {
             //    RequiredLength = 1,
@@ -39,7 +41,7 @@ namespace Users.Models {
             // 用户名验证策略
             manager.UserValidator = new UserValidator<AppUser>(manager) {
                 AllowOnlyAlphanumericUserNames = true, // 只能有字母和数字
-                RequireUniqueEmail = true // 只能唯一的电子邮件
+                RequireUniqueEmail = true // 只能唯一的电子邮件(不会验证电子邮件的格式是否正确)
             };
 
             return manager;

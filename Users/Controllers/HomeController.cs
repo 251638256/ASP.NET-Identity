@@ -16,5 +16,24 @@ namespace Users.Controllers
             data.Add("Placeholder", "Placeholder");
             return View(data);
         }
+
+        /// <summary>
+        /// 登录后角色认证失败 依然跳到了登录页面
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "goodmorning")]
+        public ActionResult OtherAction() {
+            return View("Index", GetData("OtherAction"));
+        }
+
+        private Dictionary<string, object> GetData(string actionName) {
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            dict.Add("Action", actionName);
+            dict.Add("User", HttpContext.User.Identity.Name);
+            dict.Add("Authenticated", HttpContext.User.Identity.IsAuthenticated);
+            dict.Add("Auth Type", HttpContext.User.Identity.AuthenticationType);
+            dict.Add("In Users Role", HttpContext.User.IsInRole("Users"));
+            return dict;
+        }
     }
 }
