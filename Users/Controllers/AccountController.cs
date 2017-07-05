@@ -43,6 +43,8 @@ namespace Users.Controllers
                 else {
                     // WHAT IS THIS?
                     ClaimsIdentity ident = await UserManager.CreateIdentityAsync(user ,DefaultAuthenticationTypes.ApplicationCookie);
+                    ident.AddClaims(LocationClaimsProvider.GetClaims(ident)); // 添加一些模拟的远程Claims (声明)
+                    ident.AddClaims(ClaimsRoles.CreateRolesFromClaims(ident)); // 判断下如果本身具有A角色 就给他动态添加B角色 
                     AuthManager.SignOut(); // 删掉cookie
                     AuthManager.SignIn(new AuthenticationProperties { IsPersistent = false }, ident); // 创建cookie 持久化的(永不过期)
                     return Redirect(returnUrl);

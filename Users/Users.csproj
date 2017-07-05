@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ClaimsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,10 +177,13 @@
     <Compile Include="Models\AppRoleManager.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\AppUserManager.cs" />
+    <Compile Include="Models\ClaimsAccessAttribute.cs" />
+    <Compile Include="Models\ClaimsRoles.cs" />
     <Compile Include="Models\CreateModel.cs" />
     <Compile Include="Models\CustomPasswordValidator.cs" />
     <Compile Include="Models\CustomUserValidator.cs" />
     <Compile Include="Models\IdentityHelpers.cs" />
+    <Compile Include="Models\LocationClaimsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +203,7 @@
     <Content Include="Views\RoleAdmin\Create.cshtml" />
     <Content Include="Views\RoleAdmin\Edit.cshtml" />
     <Content Include="Views\Home\UserProps.cshtml" />
+    <Content Include="Views\Claims\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
