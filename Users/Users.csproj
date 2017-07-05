@@ -182,6 +182,7 @@
     <Compile Include="Models\CreateModel.cs" />
     <Compile Include="Models\CustomPasswordValidator.cs" />
     <Compile Include="Models\CustomUserValidator.cs" />
+    <Compile Include="Models\GlobalAuthorizeAttribute.cs" />
     <Compile Include="Models\IdentityHelpers.cs" />
     <Compile Include="Models\LocationClaimsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
