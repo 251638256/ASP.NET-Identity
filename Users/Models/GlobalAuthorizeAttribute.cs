@@ -7,9 +7,7 @@ using System.Web.Mvc;
 namespace Users.Models {
     public class GlobalAuthorizeAttribute : AuthorizeAttribute {
         protected override bool AuthorizeCore(HttpContextBase httpContext) {
-            if (httpContext.Request.ContentLength > 0) {
-                return false;
-            }
+            //return false; // 阻止授权
             return base.AuthorizeCore(httpContext);
         }
     }

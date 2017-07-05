@@ -21,7 +21,7 @@ namespace Users {
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
+                LoginPath = new PathString("/Account/Login"),  // 如果不设置,程序直接将异常抛给IIS 弹出授权失败
             });
 
         }

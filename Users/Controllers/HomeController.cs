@@ -53,6 +53,16 @@ namespace Users.Controllers
             await UserManager.UpdateAsync(user);
             return View(user);
         }
+
+        /// <summary>
+        /// 不需要权限的方法
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        public string AllowAnonymousAction() {
+            return "授权成功";
+        }
+
         private AppUser CurrentUser {
             get {
                 return UserManager.FindByName(HttpContext.User.Identity.Name);
